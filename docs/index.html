@@ -123,8 +123,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
  <span class="menu-text">Home</span></a>
   </li>  
-  <li class="dropdown-header">
- <span class="menu-text">about.qmd</span></li>
+  <li class="nav-item">
+    <a class="nav-link" href="./aboutOSM.html" rel="" target="">
+ <span class="menu-text">More about OSM data</span></a>
+  </li>  
 </ul>
             <div class="quarto-navbar-tools ms-auto">
 </div>
@@ -625,8 +627,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
-<p>The considered OSM key-values are listed as a sub-sample of all <strong>available features detailed here</strong>: https://wiki.openstreetmap.org/wiki/Map_features</p>
-<p>To explore directly and interactively OpenStreetMap one can login <a href="https://www.openstreetmap.org/">here</a> and then try and modify items to have all relative information displayed.</p>
+<p>The considered OSM key-values are listed as a sub-sample of all <strong>available features detailed here</strong>:</p>
+<p><a href="https://wiki.openstreetmap.org/wiki/Map_features">https://wiki.openstreetmap.org/wiki/Map_features</a></p>
+<p>To explore directly and interactively OpenStreetMap one can login at <a href="https://www.openstreetmap.org/">https://www.openstreetmap.org/</a> and then try and modify items to have all relative information displayed.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/city_map.png" class="img-fluid figure-img"></p>
@@ -653,10 +656,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="data-collection">Data collection</h2>
 <p>To collect OSM data, the <code>glosmurb_collect</code> workflow has to be run again:</p>
 <ul>
-<li>in case the table <code>tib_key_value.csv</code> (in [glosmurb]) is modified, i.e.&nbsp;new key-values are added or any other parameter (group, color, geometry considered) is modified. For now <code>tib_key_value</code> is loaded as a dataset provided by package [glosmurb]. Running the <code>glosmurb_collect</code> workflow with a new <code>tib_key_value</code> dataset will update the contents of the table https://analytics.huma-num.fr/Lise.Vaudor/glourbapp/map_elems_global (listing all area-key-value number of elements) and <code>inst/mapinfo</code> directory (with one city=one file containing these elements).</li>
+<li>in case the table <code>tib_key_value.csv</code> (in [glosmurb]) is modified, i.e.&nbsp;new key-values are added or any other parameter (group, color, geometry considered) is modified. For now <code>tib_key_value</code> is loaded as a dataset provided by package [glosmurb]. Running the <code>glosmurb_collect</code> workflow with a new <code>tib_key_value</code> dataset will update the contents of the table <code>map_elems_global</code> (listing all area-key-value number of elements) and <code>inst/mapinfo</code> directory (with one city=one file containing these elements).</li>
 <li>in case <strong>new cities are added</strong> or the shapefiles for previously considered cities are modified. In that case running the <code>glosmurb_collect</code> workflow will provide new or modified files to add to the app’s <code>inst/shapes</code> directory</li>
 </ul>
-<p>To update the [glourbapp] package then ‘data-raw/get_map_elems_global.R’ must be re-run before re-building the package.</p>
+<p>To update the [glourbapp] package then <code>data-raw/get_map_elems_global.R</code> must be re-run before re-building the package.</p>
 
 
 </section>
