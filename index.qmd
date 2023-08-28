@@ -4,8 +4,8 @@ author: "Lise Vaudor"
 date: "2023-08-24"
 output: html_document
 ---
-![](img/GloUrb_wide.png)
 
+![](img/GloUrb_wide.png)
 
 The app is served and available [here](https://analytics.huma-num.fr/Lise.Vaudor/glourbapp/) thanks to the Huma-Num RStudio server.
 
@@ -13,19 +13,18 @@ The app is served and available [here](https://analytics.huma-num.fr/Lise.Vaudor
 
 For now, the app contains two modules
 
-- **General**: It describes a dataset documenting many floodplain cities ($N$=`r nrow(glourbi::all_cities)`) around the world. The descriptors are documented in the app upon choosing a variable.
-- **OSM**: It shows a set of selected cities (for now $N_A$=`length(glourbapp::cities)`), the **study area** considered for each floodplain city, as well as a number of OpenStreetMap data items falling into these areas and relative to floodplain urbanization.
+-   **General**: It describes a dataset documenting many floodplain cities ($N$=`r nrow(glourbi::all_cities)`) around the world. The descriptors are documented in the app upon choosing a variable.
+-   **OSM**: It shows a set of selected cities (for now $N_A$=`length(glourbapp::cities)`), the **study area** considered for each floodplain city, as well as a number of OpenStreetMap data items falling into these areas and relative to floodplain urbanization.
 
 ## General
 
 ![](img/module1.png)
 
-
 The variable chosen impacts the colorscale as described in the bottom-left part of the screen (with 10 categories corresponding to deciles for quantitative variables) for
 
-- the **map**, 
-- the **univar plot** 
-- the **multivar plot**
+-   the **map**,
+-   the **univar plot**
+-   the **multivar plot**
 
 The user might also choose a variable called **cluster**, which corresponds to the result of a hierarchical clustering of floodplain cities based on all *quantitative* description variables (normalized by using ranks instead or raw values). The user might choose the number of classes.
 
@@ -37,18 +36,16 @@ The map is clickable: you can choose a particular floodplain city by clicking on
 
 ## City plot
 
-
 ![The city description plot, here for Lyon](img/city.png)
 
 The **city plot** displays how the city compares to all others, variable by variable. For quantitative descritors, the cursor corresponds to the considered floodplain city's **rank** among all $N_0$ cities considered: lowest on the left, highest on the right)
 
 ### Univar plot
 
-
 ![univar plot, here for descriptor X2018](img/univar.png)
 
 The **univar plot** shows the distribution of selected variable (density for quantitative variables, proportion for categorical variables).
- 
+
 ### Multivar plot
 
 ![the multivar plot, here with colorscale corresponding to descriptor X2018](img/multivar.png)
@@ -57,10 +54,9 @@ The **multivar plot** shows the first factorial map based on quantitative descri
 
 ## OSM
 
-
 ![](img/module2.png)
 
-This module shows the **study areas** corresponding to **all floodplain cities listed as part of sample A**. 
+This module shows the **study areas** corresponding to **all floodplain cities listed as part of sample A**.
 
 All items falling into these areas and corresponding to particular OSM key-values **which we considered relevant to the study of urbanized floodplains** were retrieved. Here are the ones we considered for now:
 
@@ -68,10 +64,11 @@ All items falling into these areas and corresponding to particular OSM key-value
 knitr::kable(glosmurb::tib_key_value)
 ```
 
+The considered OSM key-values are listed as a sub-sample of all **available features detailed here**:
 
-The considered OSM key-values are listed as a sub-sample of all **available features detailed here**: https://wiki.openstreetmap.org/wiki/Map_features
+[https://wiki.openstreetmap.org/wiki/Map_features](https://wiki.openstreetmap.org/wiki/Map_features)
 
-To explore directly and interactively OpenStreetMap one can login [here](https://www.openstreetmap.org/) and then try and modify items to have all relative information displayed.
+To explore directly and interactively OpenStreetMap one can login at [https://www.openstreetmap.org/](https://www.openstreetmap.org/) and then try and modify items to have all relative information displayed.
 
 ![Here the map of Lyon with OSM basemap and layer regarding natural items](img/city_map.png)
 
@@ -85,20 +82,16 @@ Different layers of information can be displayed on the map, according to some g
 
 Several packages/workflows developed for project GloUrb:
 
-- **[glourbi]** package: provides plots and maps displayed in the first module of the app, consisting of a general description of N cities. Available [here on github](https://github.com/lvaudor/glourbi/)
-- **[glosmurb]** package: gathers functions that help collect OSM data for $N_A$ cities. Available [here on github](https://github.com/lvaudor/glosmurb/)
-- **glosmurb_collect** : an R workflow that uses glosmurb to actually collect OSM data for the currently selected cities. Available [here on github](https://github.com/lvaudor/glosmurb_collect/)
-- **[glourbapp]** package: the shiny package using glourbi (first module) and glosmurb-collected data (second module). Available [here on github](https://github.com/lvaudor/glourbapp/)
+-   **\[glourbi\]** package: provides plots and maps displayed in the first module of the app, consisting of a general description of N cities. Available [here on github](https://github.com/lvaudor/glourbi/)
+-   **\[glosmurb\]** package: gathers functions that help collect OSM data for $N_A$ cities. Available [here on github](https://github.com/lvaudor/glosmurb/)
+-   **glosmurb_collect** : an R workflow that uses glosmurb to actually collect OSM data for the currently selected cities. Available [here on github](https://github.com/lvaudor/glosmurb_collect/)
+-   **\[glourbapp\]** package: the shiny package using glourbi (first module) and glosmurb-collected data (second module). Available [here on github](https://github.com/lvaudor/glourbapp/)
 
 ## Data collection
 
 To collect OSM data, the `glosmurb_collect` workflow has to be run again:
 
-- in case the table `tib_key_value.csv` (in [glosmurb]) is modified, i.e. new key-values are added or any other parameter (group, color, geometry considered) is modified. For now `tib_key_value` is loaded as a dataset provided by package [glosmurb]. Running the `glosmurb_collect` workflow with a new `tib_key_value` dataset will update the contents of the table 
-https://analytics.huma-num.fr/Lise.Vaudor/glourbapp/map_elems_global (listing all area-key-value number of elements) and `inst/mapinfo` directory (with one city=one file containing these elements).
-- in case **new cities are added** or the shapefiles for previously considered cities are modified. In that case running the `glosmurb_collect` workflow will provide new or modified files to add to the app's `inst/shapes` directory
+-   in case the table `tib_key_value.csv` (in \[glosmurb\]) is modified, i.e. new key-values are added or any other parameter (group, color, geometry considered) is modified. For now `tib_key_value` is loaded as a dataset provided by package \[glosmurb\]. Running the `glosmurb_collect` workflow with a new `tib_key_value` dataset will update the contents of the table `map_elems_global` (listing all area-key-value number of elements) and `inst/mapinfo` directory (with one city=one file containing these elements).
+-   in case **new cities are added** or the shapefiles for previously considered cities are modified. In that case running the `glosmurb_collect` workflow will provide new or modified files to add to the app's `inst/shapes` directory
 
-To update the [glourbapp] package then 'data-raw/get_map_elems_global.R' must be re-run before re-building the package.
-
-
-
+To update the \[glourbapp\] package then `data-raw/get_map_elems_global.R` must be re-run before re-building the package.

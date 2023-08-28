@@ -1,0 +1,50 @@
+---
+title: "More about OSM data"
+author: "Lise Vaudor"
+date: "2023-08-24"
+output: html_document
+---
+
+![](img/GloUrb_wide.png)
+
+# Selected key-values
+
+The selected key-values should provide information on how **floodplain territory** is used, considering several types of use. At some point, for each floodplain city, we will consider two areas:
+
+-   one characterizing the **floodplain city** as a whole as well as a portion of the fluvial margin upstream and downstream (it is the area defined in the app so far)
+
+-   one characterizing the **fluvial margin**. It will be necessary to quantify what is linked specifically to the presence of the watercourse rather than a general, urban use.
+
+## Food production
+
+Food production areas tends to be well covered in **urban areas of well-developed cities**. For instance in Lyon the food production areas seem to be well accounted for in OSM.
+
+On the other hand, the information that some land is dedicated to food production is often **lacking in rural areas and less-developed cities**. For instance, in Cairo, although it is obvious that much of the territory corresponds to farmland, the OSM coverage of "landuse-farmland" is far from exhaustive.
+
+This information about food production will likely be one of the most straightforward outputs of the GloUrb remote sensing (RS) tasks. It could hence be interesting to compare how physical (RS) data and crowdsourced (OSM) data compare to each other on that matter.
+
+## Engineering
+
+Under this label several kinds of structures are gathered:
+
+-   some located directly on, or beside the water: **brigdes**, **dykes**, **dams**, **gates**, **groynes**, **embankments**
+
+-   some which may or may not be linked to the presence of the water: **quarries**, **power plants**, **wastewater plants**, **basins**: in the end we might consider only those occurring in the fluvial margin and try and find complementary data (e.g. through Wikidata) to improve our understanding of these structures' use.
+
+OSM is probably a **really interesting data source for these items**, as they might be quite difficult to detect through remote sensing, although some of them might be the focus of other datasets, for instance dams which are documented through \[globaldamwatch.org\](http://globaldamwatch.org).
+
+## Equipment
+
+Under this label the items collected can be interpreted as signs of some **planning** in favor of a **recreational use of the landscapes**: **viewpoints**, **picnic tables**, **benches**, **waste baskets**, **drinking water fountains**.
+
+In well-developed cities with semi-natural margins (Lyon, Denver), these indicators, when occurring in natural or semi-natural areas, are **indeed likely to be linked to recreational use**. Besides, their occurrence in the OSM crowdsourced dataset is in itself a sign that these areas are used for recreational use.
+
+For some less-developed cities though (e.g. Bamako, Bangui), very few items falling under this label occur: this might be in part due to **false negatives** (i.e. these items exist but they are not registered in OSM), but it might be difficult to assert this with certainty. Maybe exploring **city planning documents** will provide us with data related to urban equipment for comparison. Note that for Bamako, for instance, the occurrence of drinking water points is not indicative of a recreational use of the areas, but a sign that the availability of safe drinking water in that area is or has been problematic and is being or has been addressed, possibly by NGOs.
+
+## Entertainment
+
+The elements falling into this group correspond to a recreational use that might or might not be linked to the attractivity of the landscape: **recreation ground**, **playground**, **dog park**, **resort**, **swimming area**.
+
+## Nature
+
+The elements falling under this category correspond to natural (**wood**, **forest**, **scrub**) or semi-natural (**park**, **garden**) elements. The areas corresponding to **water** (rivercourses, basins, etc.) and potential water margins (**sand**, **beach**, **wetland**) are registered. Individual **trees** can be registered in OSM but we chose not to display them for now in order not to make the map too heavy.
