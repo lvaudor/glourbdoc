@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Lise Vaudor">
+<meta name="dcterms.date" content="2023-08-24">
+
+<title>glourbdoc - GloUrb App</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">glourbdoc</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="dropdown-header">
+ <span class="menu-text">about.qmd</span></li>
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#modules" id="toc-modules" class="nav-link active" data-scroll-target="#modules">Modules</a>
+  <ul class="collapse">
+  <li><a href="#general" id="toc-general" class="nav-link" data-scroll-target="#general">General</a>
+  <ul class="collapse">
+  <li><a href="#map" id="toc-map" class="nav-link" data-scroll-target="#map">Map</a></li>
+  </ul></li>
+  <li><a href="#city-plot" id="toc-city-plot" class="nav-link" data-scroll-target="#city-plot">City plot</a>
+  <ul class="collapse">
+  <li><a href="#univar-plot" id="toc-univar-plot" class="nav-link" data-scroll-target="#univar-plot">Univar plot</a></li>
+  <li><a href="#multivar-plot" id="toc-multivar-plot" class="nav-link" data-scroll-target="#multivar-plot">Multivar plot</a></li>
+  </ul></li>
+  <li><a href="#osm" id="toc-osm" class="nav-link" data-scroll-target="#osm">OSM</a></li>
+  </ul></li>
+  <li><a href="#dev-notes" id="toc-dev-notes" class="nav-link" data-scroll-target="#dev-notes">Dev notes</a>
+  <ul class="collapse">
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
+  <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection">Data collection</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">GloUrb App</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Lise Vaudor </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 24, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p><img src="img/GloUrb_wide.png" class="img-fluid"></p>
+<p>The app is served and available <a href="https://analytics.huma-num.fr/Lise.Vaudor/glourbapp/">here</a> thanks to the Huma-Num RStudio server.</p>
+<section id="modules" class="level1">
+<h1>Modules</h1>
+<p>For now, the app contains two modules</p>
+<ul>
+<li><strong>General</strong>: It describes a dataset documenting many floodplain cities (<span class="math inline">\(N\)</span>=993) around the world. The descriptors are documented in the app upon choosing a variable.</li>
+<li><strong>OSM</strong>: It shows a set of selected cities (for now <span class="math inline">\(N_A\)</span>=<code>length(glourbapp::cities)</code>), the <strong>study area</strong> considered for each floodplain city, as well as a number of OpenStreetMap data items falling into these areas and relative to floodplain urbanization.</li>
+</ul>
+<section id="general" class="level2">
+<h2 class="anchored" data-anchor-id="general">General</h2>
+<p><img src="img/module1.png" class="img-fluid"></p>
+<p>The variable chosen impacts the colorscale as described in the bottom-left part of the screen (with 10 categories corresponding to deciles for quantitative variables) for</p>
+<ul>
+<li>the <strong>map</strong>,</li>
+<li>the <strong>univar plot</strong></li>
+<li>the <strong>multivar plot</strong></li>
+</ul>
+<p>The user might also choose a variable called <strong>cluster</strong>, which corresponds to the result of a hierarchical clustering of floodplain cities based on all <em>quantitative</em> description variables (normalized by using ranks instead or raw values). The user might choose the number of classes.</p>
+<section id="map" class="level3">
+<h3 class="anchored" data-anchor-id="map">Map</h3>
+<p><img src="img/general_map.png" class="img-fluid"></p>
+<p>The map is clickable: you can choose a particular floodplain city by clicking on it. By clicking on it you will get its name as a popup, and will update the <strong>city plot</strong>. Markers with a black outline correspond to the floodplain cities that are part of the selected sub-sample A. More floodplain cities will be added to this group, so that we should have <span class="math inline">\(N_A\approx 300\)</span> by the end of the project.</p>
+</section>
+</section>
+<section id="city-plot" class="level2">
+<h2 class="anchored" data-anchor-id="city-plot">City plot</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/city.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">The city description plot, here for Lyon</figcaption>
+</figure>
+</div>
+<p>The <strong>city plot</strong> displays how the city compares to all others, variable by variable. For quantitative descritors, the cursor corresponds to the considered floodplain city’s <strong>rank</strong> among all <span class="math inline">\(N_0\)</span> cities considered: lowest on the left, highest on the right)</p>
+<section id="univar-plot" class="level3">
+<h3 class="anchored" data-anchor-id="univar-plot">Univar plot</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/univar.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">univar plot, here for descriptor X2018</figcaption>
+</figure>
+</div>
+<p>The <strong>univar plot</strong> shows the distribution of selected variable (density for quantitative variables, proportion for categorical variables).</p>
+</section>
+<section id="multivar-plot" class="level3">
+<h3 class="anchored" data-anchor-id="multivar-plot">Multivar plot</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/multivar.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">the multivar plot, here with colorscale corresponding to descriptor X2018</figcaption>
+</figure>
+</div>
+<p>The <strong>multivar plot</strong> shows the first factorial map based on quantitative descriptors of all <span class="math inline">\(N_0\)</span> floodplain cities. The Principal Component Analysis was run based on all <em>quantitative</em> description variables (normalized by using ranks instead or raw values).</p>
+</section>
+</section>
+<section id="osm" class="level2">
+<h2 class="anchored" data-anchor-id="osm">OSM</h2>
+<p><img src="img/module2.png" class="img-fluid"></p>
+<p>This module shows the <strong>study areas</strong> corresponding to <strong>all floodplain cities listed as part of sample A</strong>.</p>
+<p>All items falling into these areas and corresponding to particular OSM key-values <strong>which we considered relevant to the study of urbanized floodplains</strong> were retrieved. Here are the ones we considered for now:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(glosmurb<span class="sc">::</span>tib_key_value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 23%">
+<col style="width: 20%">
+<col style="width: 16%">
+<col style="width: 10%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">key</th>
+<th style="text-align: left;">value</th>
+<th style="text-align: left;">group</th>
+<th style="text-align: left;">geom</th>
+<th style="text-align: left;">color</th>
+<th style="text-align: right;">priority</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">landuse</td>
+<td style="text-align: left;">farmland</td>
+<td style="text-align: left;">food production</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#f9e79f</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">landuse</td>
+<td style="text-align: left;">meadow</td>
+<td style="text-align: left;">food production</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#f9ebea</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">landuse</td>
+<td style="text-align: left;">allotments</td>
+<td style="text-align: left;">food production</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#cd6155</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">landuse</td>
+<td style="text-align: left;">orchard</td>
+<td style="text-align: left;">food production</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#d7bde2</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">landuse</td>
+<td style="text-align: left;">plant_nursery</td>
+<td style="text-align: left;">food production</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#f5b7b1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">landuse</td>
+<td style="text-align: left;">vineyard</td>
+<td style="text-align: left;">food production</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#9b59b6</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">landuse</td>
+<td style="text-align: left;">aquaculture</td>
+<td style="text-align: left;">food production</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#5d6d7e</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">man_made</td>
+<td style="text-align: left;">groyne</td>
+<td style="text-align: left;">engineering</td>
+<td style="text-align: left;">osm_lines</td>
+<td style="text-align: left;">#fbfcfc</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">man_made</td>
+<td style="text-align: left;">dyke</td>
+<td style="text-align: left;">engineering</td>
+<td style="text-align: left;">osm_lines</td>
+<td style="text-align: left;">#808b96</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">waterway</td>
+<td style="text-align: left;">dam</td>
+<td style="text-align: left;">engineering</td>
+<td style="text-align: left;">osm_lines</td>
+<td style="text-align: left;">#566573</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">man_made</td>
+<td style="text-align: left;">embankment</td>
+<td style="text-align: left;">engineering</td>
+<td style="text-align: left;">osm_lines</td>
+<td style="text-align: left;">#abb2b9</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">seamark:type</td>
+<td style="text-align: left;">gate</td>
+<td style="text-align: left;">engineering</td>
+<td style="text-align: left;">osm_points</td>
+<td style="text-align: left;">#e74c3c</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">man_made</td>
+<td style="text-align: left;">bridge</td>
+<td style="text-align: left;">engineering</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#cb4335</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">man_made</td>
+<td style="text-align: left;">wastewater_plant</td>
+<td style="text-align: left;">engineering</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#9a7d0a</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">landuse</td>
+<td style="text-align: left;">quarry</td>
+<td style="text-align: left;">engineering</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#a04000</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">landuse</td>
+<td style="text-align: left;">port</td>
+<td style="text-align: left;">engineering</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#95a5a6</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">landuse</td>
+<td style="text-align: left;">basin</td>
+<td style="text-align: left;">engineering</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#2874a6</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">power</td>
+<td style="text-align: left;">plant</td>
+<td style="text-align: left;">engineering</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#FF0000</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">amenity</td>
+<td style="text-align: left;">drinking_water</td>
+<td style="text-align: left;">equipment</td>
+<td style="text-align: left;">osm_points</td>
+<td style="text-align: left;">#3498db</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">amenity</td>
+<td style="text-align: left;">bench</td>
+<td style="text-align: left;">equipment</td>
+<td style="text-align: left;">osm_points</td>
+<td style="text-align: left;">#4a235a</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">amenity</td>
+<td style="text-align: left;">waste_basket</td>
+<td style="text-align: left;">equipment</td>
+<td style="text-align: left;">osm_points</td>
+<td style="text-align: left;">#154360</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">leisure</td>
+<td style="text-align: left;">picnic_table</td>
+<td style="text-align: left;">equipment</td>
+<td style="text-align: left;">osm_points</td>
+<td style="text-align: left;">#0e6251</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tourism</td>
+<td style="text-align: left;">viewpoint</td>
+<td style="text-align: left;">equipment</td>
+<td style="text-align: left;">osm_points</td>
+<td style="text-align: left;">#6e2c00</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">leisure</td>
+<td style="text-align: left;">swimming_area</td>
+<td style="text-align: left;">entertainment</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#aed6f1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">leisure</td>
+<td style="text-align: left;">dog_park</td>
+<td style="text-align: left;">entertainment</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#9c640c</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">leisure</td>
+<td style="text-align: left;">fishing</td>
+<td style="text-align: left;">entertainment</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#1f618d</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">leisure</td>
+<td style="text-align: left;">playground</td>
+<td style="text-align: left;">entertainment</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#f8c471</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">leisure</td>
+<td style="text-align: left;">beach_resort</td>
+<td style="text-align: left;">entertainment</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#f7dc6f</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">leisure</td>
+<td style="text-align: left;">resort</td>
+<td style="text-align: left;">entertainment</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#d4ac0d</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">landuse</td>
+<td style="text-align: left;">recreation_ground</td>
+<td style="text-align: left;">entertainment</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#f39c12</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">leisure</td>
+<td style="text-align: left;">park</td>
+<td style="text-align: left;">nature</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#abebc6</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">leisure</td>
+<td style="text-align: left;">garden</td>
+<td style="text-align: left;">nature</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#2ecc71</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">leisure</td>
+<td style="text-align: left;">nature_reserve</td>
+<td style="text-align: left;">nature</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#1d8348</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">natural</td>
+<td style="text-align: left;">beach</td>
+<td style="text-align: left;">nature</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#fcf3cf</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">natural</td>
+<td style="text-align: left;">wood</td>
+<td style="text-align: left;">nature</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#186a3b</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">natural</td>
+<td style="text-align: left;">grassland</td>
+<td style="text-align: left;">nature</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#bef5af</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">natural</td>
+<td style="text-align: left;">sand</td>
+<td style="text-align: left;">nature</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#f5edc5</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">natural</td>
+<td style="text-align: left;">wetland</td>
+<td style="text-align: left;">nature</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#45ffe3</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">landuse</td>
+<td style="text-align: left;">forest</td>
+<td style="text-align: left;">nature</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#196f3d</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">landuse</td>
+<td style="text-align: left;">grass</td>
+<td style="text-align: left;">nature</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#2ecc71</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">landuse</td>
+<td style="text-align: left;">greenfield</td>
+<td style="text-align: left;">nature</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#82e0aa</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">natural</td>
+<td style="text-align: left;">scrub</td>
+<td style="text-align: left;">nature</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#cec127</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">natural</td>
+<td style="text-align: left;">water</td>
+<td style="text-align: left;">nature</td>
+<td style="text-align: left;">osm_polygons</td>
+<td style="text-align: left;">#4141ff</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The considered OSM key-values are listed as a sub-sample of all <strong>available features detailed here</strong>: https://wiki.openstreetmap.org/wiki/Map_features</p>
+<p>To explore directly and interactively OpenStreetMap one can login <a href="https://www.openstreetmap.org/">here</a> and then try and modify items to have all relative information displayed.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/city_map.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Here the map of Lyon with OSM basemap and layer regarding natural items</figcaption>
+</figure>
+</div>
+<p>Different layers of information can be displayed on the map, according to some grouping defined in the tib_key_value table. The following plot displays the number of items corresponding to particular key-values in this group (several groups can be considered at once).</p>
+<p><img src="img/type.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="dev-notes" class="level1">
+<h1>Dev notes</h1>
+<section id="packages" class="level2">
+<h2 class="anchored" data-anchor-id="packages">Packages</h2>
+<p>Several packages/workflows developed for project GloUrb:</p>
+<ul>
+<li><strong>[glourbi]</strong> package: provides plots and maps displayed in the first module of the app, consisting of a general description of N cities. Available <a href="https://github.com/lvaudor/glourbi/">here on github</a></li>
+<li><strong>[glosmurb]</strong> package: gathers functions that help collect OSM data for <span class="math inline">\(N_A\)</span> cities. Available <a href="https://github.com/lvaudor/glosmurb/">here on github</a></li>
+<li><strong>glosmurb_collect</strong> : an R workflow that uses glosmurb to actually collect OSM data for the currently selected cities. Available <a href="https://github.com/lvaudor/glosmurb_collect/">here on github</a></li>
+<li><strong>[glourbapp]</strong> package: the shiny package using glourbi (first module) and glosmurb-collected data (second module). Available <a href="https://github.com/lvaudor/glourbapp/">here on github</a></li>
+</ul>
+</section>
+<section id="data-collection" class="level2">
+<h2 class="anchored" data-anchor-id="data-collection">Data collection</h2>
+<p>To collect OSM data, the <code>glosmurb_collect</code> workflow has to be run again:</p>
+<ul>
+<li>in case the table <code>tib_key_value.csv</code> (in [glosmurb]) is modified, i.e.&nbsp;new key-values are added or any other parameter (group, color, geometry considered) is modified. For now <code>tib_key_value</code> is loaded as a dataset provided by package [glosmurb]. Running the <code>glosmurb_collect</code> workflow with a new <code>tib_key_value</code> dataset will update the contents of the table https://analytics.huma-num.fr/Lise.Vaudor/glourbapp/map_elems_global (listing all area-key-value number of elements) and <code>inst/mapinfo</code> directory (with one city=one file containing these elements).</li>
+<li>in case <strong>new cities are added</strong> or the shapefiles for previously considered cities are modified. In that case running the <code>glosmurb_collect</code> workflow will provide new or modified files to add to the app’s <code>inst/shapes</code> directory</li>
+</ul>
+<p>To update the [glourbapp] package then ‘data-raw/get_map_elems_global.R’ must be re-run before re-building the package.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
