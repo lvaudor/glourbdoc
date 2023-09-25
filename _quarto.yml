@@ -8,6 +8,7 @@ website:
       - href: index.qmd
         text: Home
       - aboutOSM.qmd
+      - aboutWeb.qmd
 
 format:
   html:

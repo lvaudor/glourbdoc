@@ -1,0 +1,16 @@
+---
+title: "More about web data"
+author: "Lise Vaudor"
+date: "2023-08-24"
+output: html_document
+---
+
+![](img/GloUrb_wide.png)
+
+# URLs
+
+The dataframe presented in the app corresponds to the **100 first results** returned by a **SERP (Search Engine Results Page) API** in English ("en"), for country "US" (see how this parameter can or should be changed).
+
+![](img/serp_results.png)
+
+For now the words presented on the left do not correspond to the scraped contents of the pages but simply to the **"snippet" column of the table** which corresponds to the preview of the page in the search engine. We tried to distinguish common names and "geographical names" (names starting with a capitalized letter though not at the beginning of a sentence): this should be improved (for instance by removing names of months).

@@ -1,0 +1,86 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "GloUrb App",
+    "section": "",
+    "text": "The app is served and available here thanks to the Huma-Num RStudio server."
+  },
+  {
+    "objectID": "index.html#general",
+    "href": "index.html#general",
+    "title": "GloUrb App",
+    "section": "General",
+    "text": "General\n\nThe variable chosen impacts the colorscale as described in the bottom-left part of the screen (with 10 categories corresponding to deciles for quantitative variables) for\n\nthe map,\nthe univar plot\nthe multivar plot\n\nThe user might also choose a variable called cluster, which corresponds to the result of a hierarchical clustering of floodplain cities based on all quantitative description variables (normalized by using ranks instead or raw values). The user might choose the number of classes.\n\nMap\n\nThe map is clickable: you can choose a particular floodplain city by clicking on it. By clicking on it you will get its name as a popup, and will update the city plot. Markers with a black outline correspond to the floodplain cities that are part of the selected sub-sample A. More floodplain cities will be added to this group, so that we should have \\(N_A\\approx 300\\) by the end of the project."
+  },
+  {
+    "objectID": "index.html#city-plot",
+    "href": "index.html#city-plot",
+    "title": "GloUrb App",
+    "section": "City plot",
+    "text": "City plot\n\n\n\nThe city description plot, here for Lyon\n\n\nThe city plot displays how the city compares to all others, variable by variable. For quantitative descritors, the cursor corresponds to the considered floodplain city’s rank among all \\(N_0\\) cities considered: lowest on the left, highest on the right)\n\nUnivar plot\n\n\n\nunivar plot, here for descriptor X2018\n\n\nThe univar plot shows the distribution of selected variable (density for quantitative variables, proportion for categorical variables).\n\n\nMultivar plot\n\n\n\nthe multivar plot, here with colorscale corresponding to descriptor X2018\n\n\nThe multivar plot shows the first factorial map based on quantitative descriptors of all \\(N_0\\) floodplain cities. The Principal Component Analysis was run based on all quantitative description variables (normalized by using ranks instead or raw values)."
+  },
+  {
+    "objectID": "index.html#osm",
+    "href": "index.html#osm",
+    "title": "GloUrb App",
+    "section": "OSM",
+    "text": "OSM\n\nThis module shows the study areas corresponding to all floodplain cities listed as part of sample A.\nAll items falling into these areas and corresponding to particular OSM key-values which we considered relevant to the study of urbanized floodplains were retrieved. Here are the ones we considered for now:\n\nknitr::kable(glosmurb::tib_key_value)\n\n\n\n\n\n\n\n\n\n\n\n\nkey\nvalue\ngroup\ngeom\ncolor\npriority\n\n\n\n\nlanduse\nfarmland\nfood production\nosm_polygons\n#f9e79f\n1\n\n\nlanduse\nmeadow\nfood production\nosm_polygons\n#f9ebea\n1\n\n\nlanduse\nallotments\nfood production\nosm_polygons\n#cd6155\n1\n\n\nlanduse\norchard\nfood production\nosm_polygons\n#d7bde2\n1\n\n\nlanduse\nplant_nursery\nfood production\nosm_polygons\n#f5b7b1\n1\n\n\nlanduse\nvineyard\nfood production\nosm_polygons\n#9b59b6\n1\n\n\nlanduse\naquaculture\nfood production\nosm_polygons\n#5d6d7e\n1\n\n\nman_made\ngroyne\nengineering\nosm_lines\n#fbfcfc\n1\n\n\nman_made\ndyke\nengineering\nosm_lines\n#808b96\n1\n\n\nwaterway\ndam\nengineering\nosm_lines\n#566573\n1\n\n\nman_made\nembankment\nengineering\nosm_lines\n#abb2b9\n1\n\n\nseamark:type\ngate\nengineering\nosm_points\n#e74c3c\n1\n\n\nman_made\nbridge\nengineering\nosm_polygons\n#cb4335\n1\n\n\nman_made\nwastewater_plant\nengineering\nosm_polygons\n#9a7d0a\n1\n\n\nlanduse\nquarry\nengineering\nosm_polygons\n#a04000\n1\n\n\nlanduse\nport\nengineering\nosm_polygons\n#95a5a6\n1\n\n\nlanduse\nbasin\nengineering\nosm_polygons\n#2874a6\n1\n\n\npower\nplant\nengineering\nosm_polygons\n#FF0000\n1\n\n\namenity\ndrinking_water\nequipment\nosm_points\n#3498db\n1\n\n\namenity\nbench\nequipment\nosm_points\n#4a235a\n1\n\n\namenity\nwaste_basket\nequipment\nosm_points\n#154360\n1\n\n\nleisure\npicnic_table\nequipment\nosm_points\n#0e6251\n1\n\n\ntourism\nviewpoint\nequipment\nosm_points\n#6e2c00\n1\n\n\nleisure\nswimming_area\nentertainment\nosm_polygons\n#aed6f1\n1\n\n\nleisure\ndog_park\nentertainment\nosm_polygons\n#9c640c\n1\n\n\nleisure\nfishing\nentertainment\nosm_polygons\n#1f618d\n1\n\n\nleisure\nplayground\nentertainment\nosm_polygons\n#f8c471\n1\n\n\nleisure\nbeach_resort\nentertainment\nosm_polygons\n#f7dc6f\n1\n\n\nleisure\nresort\nentertainment\nosm_polygons\n#d4ac0d\n1\n\n\nlanduse\nrecreation_ground\nentertainment\nosm_polygons\n#f39c12\n1\n\n\nleisure\npark\nnature\nosm_polygons\n#abebc6\n1\n\n\nleisure\ngarden\nnature\nosm_polygons\n#2ecc71\n1\n\n\nleisure\nnature_reserve\nnature\nosm_polygons\n#1d8348\n1\n\n\nnatural\nbeach\nnature\nosm_polygons\n#fcf3cf\n1\n\n\nnatural\nwood\nnature\nosm_polygons\n#186a3b\n1\n\n\nnatural\ngrassland\nnature\nosm_polygons\n#bef5af\n1\n\n\nnatural\nsand\nnature\nosm_polygons\n#f5edc5\n1\n\n\nnatural\nwetland\nnature\nosm_polygons\n#45ffe3\n1\n\n\nlanduse\nforest\nnature\nosm_polygons\n#196f3d\n1\n\n\nlanduse\ngrass\nnature\nosm_polygons\n#2ecc71\n1\n\n\nlanduse\ngreenfield\nnature\nosm_polygons\n#82e0aa\n1\n\n\nnatural\nscrub\nnature\nosm_polygons\n#cec127\n1\n\n\nnatural\nwater\nnature\nosm_polygons\n#4141ff\n1\n\n\n\n\n\nThe considered OSM key-values are listed as a sub-sample of all available features detailed here:\nhttps://wiki.openstreetmap.org/wiki/Map_features\nTo explore directly and interactively OpenStreetMap one can login at https://www.openstreetmap.org/ and then try and modify items to have all relative information displayed.\n\n\n\nHere the map of Lyon with OSM basemap and layer regarding natural items\n\n\nDifferent layers of information can be displayed on the map, according to some grouping defined in the tib_key_value table. The following plot displays the number of items corresponding to particular key-values in this group (several groups can be considered at once)."
+  },
+  {
+    "objectID": "index.html#packages",
+    "href": "index.html#packages",
+    "title": "GloUrb App",
+    "section": "Packages",
+    "text": "Packages\nSeveral packages/workflows developed for project GloUrb:\n\n[glourbi] package: provides plots and maps displayed in the first module of the app, consisting of a general description of N cities. Available here on github\n[glosmurb] package: gathers functions that help collect OSM data for \\(N_A\\) cities. Available here on github\nglosmurb_collect : an R workflow that uses glosmurb to actually collect OSM data for the currently selected cities. Available here on github\n[glourbapp] package: the shiny package using glourbi (first module) and glosmurb-collected data (second module). Available here on github"
+  },
+  {
+    "objectID": "index.html#data-collection",
+    "href": "index.html#data-collection",
+    "title": "GloUrb App",
+    "section": "Data collection",
+    "text": "Data collection\nTo collect OSM data, the glosmurb_collect workflow has to be run again:\n\nin case the table tib_key_value.csv (in [glosmurb]) is modified, i.e. new key-values are added or any other parameter (group, color, geometry considered) is modified. For now tib_key_value is loaded as a dataset provided by package [glosmurb]. Running the glosmurb_collect workflow with a new tib_key_value dataset will update the contents of the table map_elems_global (listing all area-key-value number of elements) and inst/mapinfo directory (with one city=one file containing these elements).\nin case new cities are added or the shapefiles for previously considered cities are modified. In that case running the glosmurb_collect workflow will provide new or modified files to add to the app’s inst/shapes directory"
+  },
+  {
+    "objectID": "aboutOSM.html#food-production",
+    "href": "aboutOSM.html#food-production",
+    "title": "More about OSM data",
+    "section": "Food production",
+    "text": "Food production\nFood production areas tends to be well covered in urban areas of well-developed cities. For instance in Lyon the food production areas seem to be well accounted for in OSM.\nOn the other hand, the information that some land is dedicated to food production is often lacking in rural areas and less-developed cities. For instance, in Cairo, although it is obvious that much of the territory corresponds to farmland, the OSM coverage of “landuse-farmland” is far from exhaustive.\nThis information about food production will likely be one of the most straightforward outputs of the GloUrb remote sensing (RS) tasks. It could hence be interesting to compare how physical (RS) data and crowdsourced (OSM) data compare to each other on that matter."
+  },
+  {
+    "objectID": "aboutOSM.html#engineering",
+    "href": "aboutOSM.html#engineering",
+    "title": "More about OSM data",
+    "section": "Engineering",
+    "text": "Engineering\nUnder this label several kinds of structures are gathered:\n\nsome located directly on, or beside the water: brigdes, dykes, dams, gates, groynes, embankments\nsome which may or may not be linked to the presence of the water: quarries, power plants, wastewater plants, basins: in the end we might consider only those occurring in the fluvial margin and try and find complementary data (e.g. through Wikidata) to improve our understanding of these structures’ use.\n\nOSM is probably a really interesting data source for these items, as they might be quite difficult to detect through remote sensing, although some of them might be the focus of other datasets, for instance dams which are documented through [globaldamwatch.org](http://globaldamwatch.org)."
+  },
+  {
+    "objectID": "aboutOSM.html#equipment",
+    "href": "aboutOSM.html#equipment",
+    "title": "More about OSM data",
+    "section": "Equipment",
+    "text": "Equipment\nUnder this label the items collected can be interpreted as signs of some planning in favor of a recreational use of the landscapes: viewpoints, picnic tables, benches, waste baskets, drinking water fountains.\nIn well-developed cities with semi-natural margins (Lyon, Denver), these indicators, when occurring in natural or semi-natural areas, are indeed likely to be linked to recreational use. Besides, their occurrence in the OSM crowdsourced dataset is in itself a sign that these areas are used for recreational use.\nFor some less-developed cities though (e.g. Bamako, Bangui), very few items falling under this label occur: this might be in part due to false negatives (i.e. these items exist but they are not registered in OSM), but it might be difficult to assert this with certainty. Maybe exploring city planning documents will provide us with data related to urban equipment for comparison. Note that for Bamako, for instance, the occurrence of drinking water points is not indicative of a recreational use of the areas, but a sign that the availability of safe drinking water in that area is or has been problematic and is being or has been addressed, possibly by NGOs."
+  },
+  {
+    "objectID": "aboutOSM.html#entertainment",
+    "href": "aboutOSM.html#entertainment",
+    "title": "More about OSM data",
+    "section": "Entertainment",
+    "text": "Entertainment\nThe elements falling into this group correspond to a recreational use that might or might not be linked to the attractivity of the landscape: recreation ground, playground, dog park, resort, swimming area."
+  },
+  {
+    "objectID": "aboutOSM.html#nature",
+    "href": "aboutOSM.html#nature",
+    "title": "More about OSM data",
+    "section": "Nature",
+    "text": "Nature\nThe elements falling under this category correspond to natural (wood, forest, scrub) or semi-natural (park, garden) elements. The areas corresponding to water (rivercourses, basins, etc.) and potential water margins (sand, beach, wetland) are registered. Individual trees can be registered in OSM but we chose not to display them for now in order not to make the map too heavy."
+  },
+  {
+    "objectID": "aboutWeb.html",
+    "href": "aboutWeb.html",
+    "title": "More about web data",
+    "section": "",
+    "text": "URLs\nThe dataframe presented in the app corresponds to the 100 first results returned by a SERP (Search Engine Results Page) API in English (“en”), for country “US” (see how this parameter can or should be changed).\n\nFor now the words presented on the left do not correspond to the scraped contents of the pages but simply to the “snippet” column of the table which corresponds to the preview of the page in the search engine. We tried to distinguish common names and “geographical names” (names starting with a capitalized letter though not at the beginning of a sentence): this should be improved (for instance by removing names of months)."
+  }
+]

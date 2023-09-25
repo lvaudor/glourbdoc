@@ -14,7 +14,7 @@ The app is served and available [here](https://analytics.huma-num.fr/Lise.Vaudor
 For now, the app contains two modules
 
 -   **General**: It describes a dataset documenting many floodplain cities ($N$=`r nrow(glourbi::all_cities)`) around the world. The descriptors are documented in the app upon choosing a variable.
--   **OSM**: It shows a set of selected cities (for now $N_A$=`length(glourbapp::cities)`), the **study area** considered for each floodplain city, as well as a number of OpenStreetMap data items falling into these areas and relative to floodplain urbanization.
+-   **OSM**: It shows a set of selected cities (for now $N_A$=`r length(glourbapp::cities)`), the **study area** considered for each floodplain city, as well as a number of OpenStreetMap data items falling into these areas and relative to floodplain urbanization.
 
 ## General
 
@@ -94,4 +94,3 @@ To collect OSM data, the `glosmurb_collect` workflow has to be run again:
 -   in case the table `tib_key_value.csv` (in \[glosmurb\]) is modified, i.e. new key-values are added or any other parameter (group, color, geometry considered) is modified. For now `tib_key_value` is loaded as a dataset provided by package \[glosmurb\]. Running the `glosmurb_collect` workflow with a new `tib_key_value` dataset will update the contents of the table `map_elems_global` (listing all area-key-value number of elements) and `inst/mapinfo` directory (with one city=one file containing these elements).
 -   in case **new cities are added** or the shapefiles for previously considered cities are modified. In that case running the `glosmurb_collect` workflow will provide new or modified files to add to the app's `inst/shapes` directory
 
-To update the \[glourbapp\] package then `data-raw/get_map_elems_global.R` must be re-run before re-building the package.
